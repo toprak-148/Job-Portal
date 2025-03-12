@@ -12,13 +12,13 @@ import java.util.Date;
 @Table(name = "users")
 public class Users {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id")
     private int userId;
 
-    @Column(name = "email")
+    @Column(unique = true)
     private String email;
-    @Column(name = "is_active")
+
     private boolean isActive;
     @NotEmpty
     private String password;
@@ -26,14 +26,14 @@ public class Users {
     private Date registrationDate;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userTypeId" , referencedColumnName = "userTypeId")
-    private UserType userTypeId;
+    private UsersType userTypeId;
 
     public Users(){
 
     }
 
 
-    public Users(int userId, String email, boolean isActive, String password, Date registrationDate, UserType userTypeId) {
+    public Users(int userId, String email, boolean isActive, String password, Date registrationDate, UsersType userTypeId) {
         this.userId = userId;
         this.email = email;
         this.isActive = isActive;
@@ -82,11 +82,11 @@ public class Users {
         this.registrationDate = registrationDate;
     }
 
-    public UserType getUserTypeId() {
+    public UsersType getUserTypeId() {
         return userTypeId;
     }
 
-    public void setUserTypeId(UserType userTypeId) {
+    public void setUserTypeId(UsersType userTypeId) {
         this.userTypeId = userTypeId;
     }
 
