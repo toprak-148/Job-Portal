@@ -11,33 +11,34 @@ import java.util.Date;
 @Entity
 @Table(name = "users")
 public class Users {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_id")
     private int userId;
 
     @Column(unique = true)
     private String email;
 
-    private boolean isActive;
     @NotEmpty
     private String password;
+
+    private boolean isActive;
+
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date registrationDate;
+
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "userTypeId" , referencedColumnName = "userTypeId")
+    @JoinColumn(name = "userTypeId", referencedColumnName = "userTypeId")
     private UsersType userTypeId;
 
-    public Users(){
-
+    public Users() {
     }
 
-
-    public Users(int userId, String email, boolean isActive, String password, Date registrationDate, UsersType userTypeId) {
+    public Users(int userId, String email, String password, boolean isActive, Date registrationDate, UsersType userTypeId) {
         this.userId = userId;
         this.email = email;
-        this.isActive = isActive;
         this.password = password;
+        this.isActive = isActive;
         this.registrationDate = registrationDate;
         this.userTypeId = userTypeId;
     }
@@ -58,20 +59,20 @@ public class Users {
         this.email = email;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     public Date getRegistrationDate() {
@@ -95,8 +96,8 @@ public class Users {
         return "Users{" +
                 "userId=" + userId +
                 ", email='" + email + '\'' +
-                ", isActive=" + isActive +
                 ", password='" + password + '\'' +
+                ", isActive=" + isActive +
                 ", registrationDate=" + registrationDate +
                 ", userTypeId=" + userTypeId +
                 '}';
