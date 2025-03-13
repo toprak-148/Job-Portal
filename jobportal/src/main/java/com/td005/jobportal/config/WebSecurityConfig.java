@@ -47,6 +47,7 @@ public class WebSecurityConfig {
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
     {
         http.authenticationProvider(authenticationProvider());
+
         http.authorizeHttpRequests(aut->{
             aut.requestMatchers(publicUrl).permitAll();
             aut.anyRequest().authenticated();
@@ -57,20 +58,15 @@ public class WebSecurityConfig {
                 .logout(logout->{
                     logout.logoutUrl("/logout");
                     logout.logoutSuccessUrl("/");
-                })
-                .cors(Customizer.withDefaults())
+                }).cors(Customizer.withDefaults())
                 .csrf(csrf->csrf.disable());
-
-
-
-
 
         return http.build();
 
 
     }
 
-    //kullanicilari nasil bulacagimizi ve ayrica şifrelerin nasil doğrulacağını kullandigimiz fonksiyon
+    //kullanicilari nasil bulacagimizi ve ayrica şifrelerin nasil dogrulacagini kullandigimiz fonksiyon
     @Bean
     public AuthenticationProvider authenticationProvider()
     {
