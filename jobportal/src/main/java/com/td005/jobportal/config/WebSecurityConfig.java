@@ -60,7 +60,7 @@ public class WebSecurityConfig {
                 })
                 .cors(Customizer.withDefaults())
                 .csrf(csrf->csrf.disable());
-        
+
 
 
 
