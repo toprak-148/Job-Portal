@@ -33,4 +33,5 @@ build/
 .vscode/
 src/main/resources/application.properties
 jobportal-database-schema.png
-photos
+photos/recruiter/12/cv_foto_jpg
+photos/recruiter/12/Foto.jpeg
