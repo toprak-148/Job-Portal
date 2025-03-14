@@ -35,4 +35,4 @@ src/main/resources/application.properties
 jobportal-database-schema.png
 photos/recruiter/12/cv_foto.jpg
 photos/recruiter/12/Foto.jpeg
-summernote/
+src/main/resources/static/summernote/
