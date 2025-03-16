@@ -26,4 +26,11 @@ public class JobSeekerServiceImpl implements JobSeekerSaveService{
     public List<JobSeekerSave> getJobCandidates(JobPostActivity job) {
         return this.jobSeekerSaveRepository.findByJob(job);
     }
+
+    @Override
+    public void addNew(JobSeekerSave jobSeekerSave)
+    {
+        jobSeekerSaveRepository.save(jobSeekerSave);
+
+    }
 }

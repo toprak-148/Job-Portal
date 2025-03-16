@@ -13,5 +13,6 @@ public interface JobSeekerSaveService {
     List<JobSeekerSave> getJobCandidates(JobPostActivity job);
 
 
+    void addNew(JobSeekerSave jobSeekerSave);
 
 }
