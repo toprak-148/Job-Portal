@@ -124,7 +124,6 @@ public class RecruiterProfile {
     }
 
 
-
     @Override
     public String toString() {
         return "RecruiterProfile{" +

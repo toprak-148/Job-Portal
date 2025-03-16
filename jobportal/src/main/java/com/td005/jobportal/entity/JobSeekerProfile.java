@@ -155,6 +155,7 @@ public class JobSeekerProfile {
 
     }
 
+
     @Override
     public String toString() {
         return "JobSeekerProfile{" +
